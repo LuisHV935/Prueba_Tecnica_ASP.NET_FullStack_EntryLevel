@@ -68,6 +68,10 @@ En `TaskManager/appsettings.json`, reemplazar `TU_CONTRA_AQUI` con la contraseñ
 ```json
 "DefaultConnection": "Server=localhost,1433;Database=TaskManagerDb;User Id=sa;Password=TU_CONTRA_AQUI;TrustServerCertificate=True;"
 ```
+##Clonar Repositorio
+```bash
+git clone -b master https://github.com/LuisHV935/Prueba_Tecnica_ASP.NET_FullStack_EntryLevel.git
+```
 
 ## Compilar y ejecutar
 
