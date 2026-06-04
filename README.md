@@ -54,7 +54,7 @@ docker exec -i sqlserver /opt/mssql-tools18/bin/sqlcmd \
 
 La connection string se puede configurar de dos formas:
 
-### Opción 1: User Secrets (recomendado para desarrollo local)
+### Opción 1: User Secrets
 
 ```bash
 dotnet user-secrets init --project TaskManager/TaskManager.csproj
