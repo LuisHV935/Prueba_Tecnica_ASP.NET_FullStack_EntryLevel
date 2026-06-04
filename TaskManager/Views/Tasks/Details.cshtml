@@ -1,0 +1,33 @@
+@model TaskViewModel
+
+@{
+    ViewData["Title"] = "Detalle de Tarea";
+}
+
+<div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h2 class="h5 mb-0">Detalle de Tarea</h2>
+        <span class="badge @(Model.Status == "Completed" ? "bg-success" : Model.Status == "InProgress" ? "bg-warning text-dark" : "bg-secondary") fs-6">
+            @(Model.Status switch { "Completed" => "Completada", "InProgress" => "En Progreso", _ => "Pendiente" })
+        </span>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Id)</dt>
+            <dd class="col-sm-9">@Model.Id</dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Title)</dt>
+            <dd class="col-sm-9">@Model.Title</dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Description)</dt>
+            <dd class="col-sm-9">@(string.IsNullOrEmpty(Model.Description) ? "Sin descripción" : Model.Description)</dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(m => m.CreatedAt)</dt>
+            <dd class="col-sm-9">@Model.CreatedAt.ToString("dd/MM/yyyy HH:mm")</dd>
+        </dl>
+    </div>
+    <div class="card-footer">
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">Editar</a>
+        <a asp-action="Index" class="btn btn-secondary">Volver</a>
+    </div>
+</div>

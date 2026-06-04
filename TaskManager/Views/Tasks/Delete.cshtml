@@ -1,0 +1,33 @@
+@model TaskViewModel
+
+@{
+    ViewData["Title"] = "Eliminar Tarea";
+}
+
+<div class="card border-danger">
+    <div class="card-header bg-danger text-white">
+        <h2 class="h5 mb-0">Confirmar Eliminación</h2>
+    </div>
+    <div class="card-body">
+        <p class="alert alert-warning">¿Estás seguro de que deseas eliminar esta tarea? Esta acción no se puede deshacer.</p>
+
+        <dl class="row">
+            <dt class="col-sm-3">#</dt>
+            <dd class="col-sm-9">@Model.Id</dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Title)</dt>
+            <dd class="col-sm-9">@Model.Title</dd>
+
+            <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Status)</dt>
+            <dd class="col-sm-9">@(Model.Status switch { "Completed" => "Completada", "InProgress" => "En Progreso", _ => "Pendiente" })</dd>
+        </dl>
+
+        <form asp-action="Delete" method="post">
+            <input asp-for="Id" type="hidden" />
+            <div class="d-flex gap-2">
+                <button type="submit" class="btn btn-danger">Eliminar</button>
+                <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
